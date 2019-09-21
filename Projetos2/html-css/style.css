@@ -1,0 +1,147 @@
+html, body{
+    height:946px;
+    margin:0;
+    padding:0;
+    font-family:'Comfortaa', cursive;
+    background: cornsilk;
+    
+}
+
+#container{
+    min-height: 100%;
+    margin-bottom: -90px;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-between;
+}
+.header ul,.header li{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 100%;
+}
+
+.div-header ul li:hover{
+    background: cornsilk;
+    color:#494e6b;
+    
+}
+
+.header{
+    height: 80px;
+    background:#494e6b;
+    width: 100%;
+    position: fixed;
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+}
+#nome{
+    width:40%;
+    height:100%;
+
+    display: flex;
+    flex-direction:row;
+    margin-left:60px;
+    align-items: center;
+}
+.div-header{
+    width:60%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-around;
+
+}
+.corpo{
+    width:100%;
+    height:100%;
+
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.conteudo{
+    
+    padding: 0;
+    margin-top: 160px;
+}
+
+.conteudo.det{
+    padding-left: 160px;
+    margin-top:190px;
+    width: 65%;
+    height: auto;
+}
+
+#li-info{
+    line-height: 50px;
+}
+
+#facul{
+    font-weight: bold;
+    font-style: oblique;
+}
+
+.cod{
+    line-height: 50px;
+    display: flex;
+    flex-direction: column;
+
+    align-items:center;
+    align-content: flex-start;
+
+    margin-right: 200px;
+}
+#imgcodigo{
+    width: 600px;
+}
+
+.titulo{
+    font-weight: bold;
+}
+
+.titulocod{
+    align-self: center;
+    font-weight: bold;
+}
+.infodev{
+    padding: 0;
+}
+.footer{
+    height:90px;
+    width: 100%;
+    background: #22252c;
+    color:#ffffff;
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content:space-around;
+}
+
+.listafooter ul,.listafooter li{
+    display: inline;
+    list-style: square;
+}
+
+.footer img{
+    width:30px;
+    border-radius: 100%;
+}
