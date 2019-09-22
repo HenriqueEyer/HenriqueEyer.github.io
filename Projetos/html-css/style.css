@@ -1,5 +1,7 @@
-html, body{
-    height:946px;
+html,
+body,
+#container{
+    height:100%;
     margin:0;
     padding:0;
     font-family:'Comfortaa', cursive;
@@ -7,9 +9,15 @@ html, body{
     
 }
 
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
 #container{
-    min-height: 100%;
-    margin-bottom: -90px;
+    height: 100%;
+    
     display: flex;
     flex-direction: column;
 
@@ -23,8 +31,15 @@ html, body{
     align-items: center;
     justify-content: space-around;
 
+    
+
     width: 100%;
     height: 100%;
+}
+
+#itens-header{
+    padding: 0px;
+    margin: 0px;
 }
 
 .div-header ul li:hover{
@@ -34,7 +49,7 @@ html, body{
 }
 
 .header{
-    height: 80px;
+    height: 10%;
     background:#494e6b;
     width: 100%;
     position: fixed;
@@ -47,49 +62,94 @@ html, body{
     justify-content: center;
 }
 #nome{
-    width:40%;
     height:100%;
 
     display: flex;
-    flex-direction:row;
-    margin-left:60px;
+    flex-direction:row;    
     align-items: center;
+    
+    margin-left:60px;
+    flex: 1;
 }
 .div-header{
-    width:60%;
+    width:100%;
     height: 100%;
 
     display: flex;
     flex-direction: row;
 
     align-items: center;
-    justify-content: space-around;
-
+    justify-content: space-between;
+    flex: 1;
 }
+
 .corpo{
     width:100%;
+    margin-top:80px;
     height:100%;
 
     display: flex;
     flex-direction: row;
     
-}
 
-.conteudo{
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+
+    flex-wrap: wrap;
     
-    padding: 0;
-    margin-top: 160px;
 }
 
-.conteudo.det{
-    padding-left: 160px;
-    margin-top:190px;
-    width: 65%;
+.subcorpo{
+    
+}
+
+#left-corpo{
+    padding: 90px;
+    width: 800px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start ;
+    justify-content:flex-start;
+}
+#right-corpo{
+    padding: 90px;
+    width: 800px;
+    min-width:400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start ;
+    justify-content:center;
+}
+
+.conteudodet{
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start ;
+    justify-content:center;
+
+    width:100%;
+    height: 100%;
+
+}
+
+.det{
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start ;
+    justify-content:flex-start;
+
+    
     height: auto;
 }
 
 #li-info{
     line-height: 50px;
+    font-size: 15px;
 }
 
 #facul{
@@ -97,33 +157,46 @@ html, body{
     font-style: oblique;
 }
 
-.cod{
+.conteudocod{
     line-height: 50px;
+
+    
     display: flex;
     flex-direction: column;
 
     align-items:center;
-    align-content: flex-start;
+    align-content: center;
+    
+    width: 100%;
+    
 
-    margin-right: 200px;
+    
 }
+
 #imgcodigo{
-    width: 600px;
+    width: 80%;
 }
 
-.titulo{
+
+.titulodet{
     font-weight: bold;
+    font-size: 25px;
 }
 
 .titulocod{
     align-self: center;
     font-weight: bold;
+    font-size: 25px;
 }
-.infodev{
+.infodet{
     padding: 0;
+    font-size: 20px;
+    
 }
 .footer{
-    height:90px;
+    margin-top: auto;
+
+    height:10%;
     width: 100%;
     background: #22252c;
     color:#ffffff;
