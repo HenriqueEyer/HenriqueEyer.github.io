@@ -1,7 +1,5 @@
 
-
-let nota=60;
-
+function notas(nota){
 if(nota>=90){
     console.log("A");
 }else if(nota>=80){
@@ -14,4 +12,5 @@ if(nota>=90){
     console.log("E");
 }else {
     console.log("F");
+}
 }
