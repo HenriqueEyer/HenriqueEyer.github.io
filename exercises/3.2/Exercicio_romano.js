@@ -23,10 +23,11 @@ for(cont of separado){
 c=0;
 console.log(vet)
 for(c=0;c<vet.length;c++){
+
     if(vet[c]<vet[c+1]){
-    vet[c+1]=vet[c+1]-vet[c];
+        vet[c+1]=vet[c+1]-vet[c];
     }else{
-    total+=vet[c];
+        total+=vet[c];
     }
 }
 console.log(total)
