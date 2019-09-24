@@ -87,16 +87,29 @@ function notas(nota){
 //Exercicio8
 function somapar(a,b,c){
     let vari;
-    vari=((a+b+c)%2==0)?true:false;
+    
+    
+    if((a%2==0 || b%2==0 || c%2==0)){
+        vari=true;
+    }else{
+        vari=false;
+        }
     console.log(vari);
     }
+    
 
 //Exercicio9
 function somaimpar(a,b,c){
     let vari;
-    vari=((a+b+c)%2==0)?false:true;
-    console.log(vari);
+    
+    
+    if((a%2!=0 || b%2!=0 || c%2!=0)){
+        vari=true;
+    }else{
+        vari=false;
     }
+console.log(vari);
+}
 
 //Exercicio10
 function lucro(valor_venda,custo){
@@ -117,7 +130,7 @@ function salario(bruto){
     }else{
         inss=570.88;
     }
-     brutoinss=bruto-inss;
+    let brutoinss=bruto-inss;
     if(brutoinss<=1903.94){
         ir=0;
     }else if(brutoinss<=2826.65){
@@ -127,7 +140,7 @@ function salario(bruto){
     }else if(brutoinss<=4664.68){
         ir=brutoinss*0.225-636.13;
     }else{
-        inss=brutoinss*0.275-869.36;
+        ir=brutoinss*0.275-869.36;
     }
     
     console.log(brutoinss-ir);
