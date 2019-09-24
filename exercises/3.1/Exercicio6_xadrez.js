@@ -1,6 +1,6 @@
 
 
-let peca="rei";
+function xadrez(peca){
 peca=peca.toUpperCase();
 
 switch(peca){
@@ -18,4 +18,5 @@ switch(peca){
         break;
     default : console.log("DIgite um valor valido");
         break;         
+}
 }

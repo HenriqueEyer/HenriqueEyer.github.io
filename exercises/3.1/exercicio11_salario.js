@@ -1,4 +1,4 @@
-let bruto=4000.00;
+function salario(bruto){
 let inss;
 let ir;
 if(bruto<=1556.94){
@@ -24,3 +24,4 @@ if(brutoinss<=1903.94){
 }
 
 console.log(brutoinss-ir);
+}
