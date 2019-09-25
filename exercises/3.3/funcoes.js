@@ -1,5 +1,4 @@
-//exercicio 1
-//Definição que eu já vi de diferença entre eles: -For é muito bom para percorrer um array pq em um array ele possuem um final entao voce delimita um maximo para rodar, o while pode ser usado para manter uma validação de dados, rodar sem parar até a pessoa digitar o dado valido. 
+//Confundi e fiz o commit so na master criando um comentario para fazr o pull request
 
 function exer1(){
 
