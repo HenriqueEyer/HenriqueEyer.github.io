@@ -72,3 +72,76 @@ function exer3(){
     resultado.innerHTML="Menor: "+menor+", Indice:"+indice;
     
 }
+
+var pessoas=[];
+
+function addnome(){
+    let nome=document.getElementById("entradanome").value;
+    pessoas.push(nome);
+}
+
+function exer4(){
+    let vet=pessoas;
+    let i;
+    maior=vet[0];
+    for(i=0;i<vet.length;i++){
+        if(vet[i].length > maior.length){
+            maior=vet[i];
+        }
+    }
+
+    let resultado=document.getElementById("lblresultado4");
+    resultado.innerHTML="Maior:" + maior;
+
+}
+
+function exer5(){
+
+    let entrada=document.getElementById("entrada5").value;
+    
+    let split=entrada.split("");
+    
+    split=split.sort();
+    
+    let i;
+
+    let qtd=0;
+    let maiorrept=0;
+    let numrept;
+    for(i=0;i<split.length;i++){
+        if(split[i]==split[i+1]){
+            qtd++;
+        }else{
+            if(qtd>maiorrept){
+                maiorrept=qtd;
+                numrept=split[i];
+            }
+            qtd=0;
+        }
+        
+    }
+
+
+   
+    
+    let resultado=document.getElementById("lblresultado5");
+    resultado.innerHTML="Numero:"+numrept;
+    
+}
+
+
+
+function exer6(){
+
+    let entrada=document.getElementById("entrada6").value;
+    let total=0;
+    let i;
+    for(i=1;i<=entrada;i++){
+        total=total+i;
+    }
+
+    let resultado=document.getElementById("lblresultado6");
+    resultado.innerHTML="Resultado:" + total;
+
+}
+
