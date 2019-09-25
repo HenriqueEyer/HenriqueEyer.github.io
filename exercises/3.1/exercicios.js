@@ -1,91 +1,134 @@
 //Exercicio1
-function operadores(a,b){
-    console.log("Soma:"+(a+b));
-    console.log("Subtração:"+(a-b));
-    console.log("Multiplicação:"+(a*b));
-    console.log("Divisão:"+(a/b));
-    console.log("Módulo:"+(a%b));
+
+
+function Exercicio(num,elementos){
+    
+
+    let a;
+    let b;
+    let c;
+
+    if(elementos==1){
+        a=document.getElementById("Input1_ex"+num).value;
+    }else if (elementos==2) {
+        a=document.getElementById("Input1_ex"+num).value;
+        b=document.getElementById("Input2_ex"+num).value;
+    }else{
+        a=document.getElementById("Input1_ex"+num).value;
+        b=document.getElementById("Input2_ex"+num).value;
+        c=document.getElementById("Input3_ex"+num).value;
+    }
+
+
+    switch(num){
+        case 1:operadores(a,b,num);
+            break;
+        case 2:Maiornum(a,b,num);
+            break;
+        case 3:maiornum3(a,b,c,num);
+            break;
+        case 4:pos_neg(a,num);
+            break;
+        case 5:angulo(a,b,c,num);
+            break;
+        case 6:xadrez(a,num);
+            break;
+        case 7:notas(a,num);
+            break;
+        case 8:somapar(a,b,c,num);
+            break;
+        case 9:somaimpar(a,b,c,num);
+            break;
+        case 10:lucro(a,b,num);
+            break;    
+        case 11:salario(a,num);
+            break;       
+    }
+
+
+}
+
+
+function operadores(a,b,num){
+    let rest="Soma: "+(a+b)+"\n"+"Subtração:"+(a-b)+"\n"+"Multiplicação:"+(a*b)+"\n"+"Divisão:"+(a/b)+"\n"+"Resto:"+(a%b);
+    resposta(rest,num);
     }
 
 //Exercicio2
-function Maiornum(a,b){
+function Maiornum(a,b,num){
     if(a>b){
-        console.log(a);
+        resposta(a,num);
     }else{
-        console.log(b);
+        resposta(b,num);
     }
     }
 
 //Exercicio3
-function maiornum3(a,b,c){
+function maiornum3(a,b,c,num){
 if(a>b && a>c){
-    console.log(a);
+    resposta(a,num);
 }else if (b>c){
-    console.log(b)
+    resposta(b,num);
 }else{
-    console.log(c)
+    resposta(c,num);
 }
     }
 
 //Exercicio4
-function pos_neg(num){
-    (num>=0) ? console.log("Positivo"):console.log("negativo");
+function pos_neg(num,num2){
+    (num>=0)?resposta('Positivo',num2):resposta('negativo',num2);
     }
 
 //Exercicio5
-function angulo(ang1,ang2,ang3){
+function angulo(ang1,ang2,ang3,num){
     let angulovalido=false;
-    
-    do{
-    ((ang1>0 && ang2>0 && ang3>0))?angulovalido=true:console.log("Os angulos precisam serem validos");
-    }while(angulovalido!=true)
-    
+     
     ((ang1+ang2+ang3)==180)?controle=true:controle=false;
     
-    controle?console.log(controle):console.log("N eh um triangulo");
+    controle?resposta(controle,num):resposta("N eh um triangulo",num);
     }
 
 //Exercicio6
-function xadrez(peca){
+function xadrez(peca,num){
     peca=peca.toUpperCase();
     
     switch(peca){
-        case "RAINHA":console.log("Diagonal,Vertical e Horizontal");
+        case "RAINHA":resposta("Diagonal,Vertical e Horizontal",num);
             break;
-        case "TORRE":console.log("Horizontal e vertical");
+        case "TORRE":resposta("Horizontal e vertical",num);
             break;
-        case "PEAO":console.log("Apenas horizontal pra frente, apenas uma casa por vez e duas se for o primeiro ovimento dele.");
+        case "PEAO":resposta("Apenas horizontal pra frente, apenas uma casa por vez e duas se for o primeiro ovimento dele.",num);
             break;
-        case "BISPO":console.log("Apenas Diagonais");
+        case "BISPO":resposta("Apenas Diagonais",num);
             break;
-        case "CAVALO":console.log("Sempre em L");
+        case "CAVALO":resposta("Sempre em L",num);
             break;  
-        case "REI":console.log("Todas as direçoes mas apenas uma casa");
+        case "REI":resposta("Todas as direçoes mas apenas uma casa",num);
             break;
-        default : console.log("DIgite um valor valido");
+        default : resposta("DIgite um valor valido",num);
             break;         
     }
     }
 
 //Exercicio7
-function notas(nota){
+function notas(nota,num){
     if(nota>=90){
-        console.log("A");
+        resposta("A",num);
     }else if(nota>=80){
-        console.log("B");
+        resposta("B",num);
     }else if(nota>=70){
-        console.log("C");
+        resposta("C",num);
     }else if(nota>=0){
-        console.log("D");
+        resposta("D",num);
     }else if(nota>=40){
-        console.log("E");
+        resposta("E",num);
     }else {
-        console.log("F");
+        resposta("F",num);
     }
     }
 
 //Exercicio8
-function somapar(a,b,c){
+function somapar(a,b,c,num){
     let vari;
     
     
@@ -94,12 +137,13 @@ function somapar(a,b,c){
     }else{
         vari=false;
         }
-    console.log(vari);
-    }
+    resposta(vari,num);
+}
+    
     
 
 //Exercicio9
-function somaimpar(a,b,c){
+function somaimpar(a,b,c,num){
     let vari;
     
     
@@ -108,17 +152,17 @@ function somaimpar(a,b,c){
     }else{
         vari=false;
     }
-console.log(vari);
+    resposta(vari,num);
 }
 
 //Exercicio10
-function lucro(valor_venda,custo){
+function lucro(valor_venda,custo,num){
     let lucro_peca=valor_venda-custo;
-    console.log((1000*(lucro_peca*0.8)));
+    resposta((1000*(lucro_peca*0.8)),num);
     }
 
 //Exercicio11
-function salario(bruto){
+function salario(bruto,num){
     let inss;
     let ir;
     if(bruto<=1556.94){
@@ -143,5 +187,11 @@ function salario(bruto){
         ir=brutoinss*0.275-869.36;
     }
     
-    console.log(brutoinss-ir);
+    resposta((brutoinss-ir),num);
     }
+
+function resposta(resp,num){
+    
+    document.getElementById("exe"+num+"rst").innerHTML=resp;
+}
+    
