@@ -31,4 +31,3 @@ for(c=0;c<vet.length;c++){
     }
 }
 console.log(total)
-
