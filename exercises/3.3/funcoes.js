@@ -105,7 +105,7 @@ function exer5(){
     
     let i;
 
-    let qtd=0;
+    let qtd=1;
     let maiorrept=0;
     let numrept;
     for(i=0;i<split.length;i++){
@@ -116,7 +116,7 @@ function exer5(){
                 maiorrept=qtd;
                 numrept=split[i];
             }
-            qtd=0;
+            qtd=1;
         }
         
     }
