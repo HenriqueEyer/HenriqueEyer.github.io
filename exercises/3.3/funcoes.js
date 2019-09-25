@@ -145,3 +145,27 @@ function exer6(){
 
 }
 
+
+
+function exer7(entrada1,entrada2){
+
+    let entrada1=document.getElementById("word").value;
+    let entrada2=document.getElementById("fim").value;
+
+
+    entrada1=entrada1.split("");
+    entrada2=entrada2.split("");
+
+    let i;
+
+    controle=true;
+    for(i=0;i<entrada2.length;i++){
+        if(entrada1[(entrada1.length-1)-i]!=entrada2[(entrada2.length-1)-i]){
+            controle=false;
+        }
+    }
+
+    let resultado=document.getElementById("lblresultado7");
+    resultado.innerHTML=controle;
+
+}
