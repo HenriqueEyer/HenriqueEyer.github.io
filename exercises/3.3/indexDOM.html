@@ -34,7 +34,7 @@
     <div class="main-content">
       <div class="center-content">
         <p>Texto padrão do nosso site</p>
-        <p>-----</p>
+        <p>----</p>
         <p>Trybe</p>
       </div>
     </div>
@@ -82,16 +82,20 @@
 
         function exe5(){
             let texto=document.getElementsByTagName("p");
-            let string;
             for(i in texto){
-                string=texto[i].innerHTML;
-                string=string.toUpperCase();
-                texto[i].innerHTML=string;
+            texto[i].style="text-transform: uppercase;"
             }
         }
         exe5();
 
         
+        function exe6(){
+            let texto=document.getElementsByTagName("p");
+            for(i in texto){
+                console.log(texto[i].innerHTML);
+            }
+        }
+        exe6();
 
     </script>
   </body>
