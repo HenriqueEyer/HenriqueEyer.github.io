@@ -53,8 +53,8 @@ div.corpo{
 }
 
 div.sub{
-    width:300px;
-    height: 315px;
+    min-width:300px;
+    min-height: 315px;
     padding: 20px;
     margin:10px;
     background: cadetblue;
