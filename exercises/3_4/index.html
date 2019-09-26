@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    
+    
+    <div id="pai">
+        <div id="primeiroFilho"></div>
+        <div id="elementoOndeVoceEsta">
+            <div id="primeiroFilhoDoFilho"></div>
+            <div id="segundoEUltimoFilhoDoFilho"></div>
+        </div>
+        <div id="terceiroFilho"></div>
+        <div id="quartoEUltimoFilho"></div>
+    </div>
+    <script>
+        
+        let ex1=document.querySelector("#elementoOndeVoceEsta");
+        let ex2=document.querySelector("#elementoOndeVoceEsta").parentNode;
+        ex2.style="background:red;";
+        let ex3=document.querySelector("#primeiroFilhoDoFilho");
+        ex3.innerHTML="PRIMEIRO FILHO";
+        let ex4=document.querySelector("#pai").firstElementChild;
+        let ex5=document.querySelector("#elementoOndeVoceEsta").previousElementSibling;
+        let ex6=document.querySelector("#elementoOndeVoceEsta").nextElementSibling;
+        let ex7=document.querySelector("#pai").childNodes[5];
+        
+        console.log(ex1);
+        console.log(ex2);
+        console.log(ex3);
+        console.log(ex4);
+        console.log(ex5);
+        console.log(ex6);
+        console.log(ex7);
+
+    </script>
+</body>
+</html>
