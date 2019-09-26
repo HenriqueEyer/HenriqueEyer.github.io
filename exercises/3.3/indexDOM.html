@@ -80,6 +80,19 @@
         }
         exe4();
 
+        function exe5(){
+            let texto=document.getElementsByTagName("p");
+            let string;
+            for(i in texto){
+                string=texto[i].innerHTML;
+                string=string.toUpperCase();
+                texto[i].innerHTML=string;
+            }
+        }
+        exe5();
+
+        
+
     </script>
   </body>
 </html>
