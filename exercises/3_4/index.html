@@ -34,6 +34,23 @@
         console.log(ex6);
         console.log(ex7);
 
+        let irmao=document.createElement("div");
+        irmao.id="irmaodoelementoondevoceesta";
+        document.querySelector("#pai").appendChild(irmao);
+
+        let filhoelelemento=document.createElement("div");
+        filhoelelemento.id="filhoelemento";
+        document.querySelector("#elementoOndeVoceEsta").appendChild(filhoelelemento);
+
+        let ex2_3=document.createElement("div");
+        ex2_3.id="filhodoprimeirofilhodofilho";
+        document.querySelector("#primeiroFilhoDoFilho").appendChild(ex2_3);
+        
+
+        let ex2_4=document.querySelector("#filhodoprimeirofilhodofilho").parentNode.parentNode.nextElementSibling;
+
+        
+        console.log(ex2_4);
     </script>
 </body>
 </html>
