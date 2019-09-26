@@ -62,7 +62,57 @@
         ex1.innerHTML="Exercício 3.4 - JavaScript DOM"
         document.body.appendChild(ex1);
     //fim  ex1
+    //ex2
+        let ex2=document.createElement("div");
+        ex2.className="main-content"
+        document.body.appendChild(ex2)
+    //fim ex2
+    //ex3
+    let ex3=document.createElement("div");
+        ex3.className="center-content"
+        ex2.appendChild(ex3)
+    //fim ex3
+    //ex4
+    let ex4=document.createElement("p");
+        ex4.innerHTML="Alguma coisa"
+        ex3.appendChild(ex4)
+    //fim ex4
+    //ex5
+    let ex5=document.createElement("div");
+        ex5.className="left-content"
+        ex2.appendChild(ex5)
+    //fim ex5
+    //ex6
+    let ex6=document.createElement("div");
+        ex6.className="right-content"
+        ex2.appendChild(ex6)
+    //fim ex6
+    //ex7
+    let ex7=document.createElement("img");
+        ex7.src="https://picsum.photos/200";
+        ex7.className="small-image"
+        ex5.appendChild(ex7)
+    //fim ex7
+    //ex8
+    let numeros=['UM','DOIS','TRES','QUARTO','CINCO','SEIS','SETE','OITO','NOVE','DEZ'];
+
+    let ex8=document.createElement("ul");
+    ex6.appendChild(ex8);
+    for(i in numeros){
+    let ex8_1=document.createElement("li");
+    ex8_1.innerHTML=numeros[i];
+    ex6.appendChild(ex8_1);
+    }
+    //fim ex8
+    //ex9
+    for(i=0;i<3;i++){
+    let ex6=document.createElement("h3");
+        ex6.innerHTML="ola";
+        ex2.appendChild(ex6);
+    }
+   
     
+    //fim ex9
     </script>
   </body>
 </html>
