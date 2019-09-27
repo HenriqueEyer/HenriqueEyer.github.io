@@ -105,10 +105,11 @@
     }
     //fim ex8
     //ex9
+    let paiex6=document.getElementsByClassName('center-content');
     for(i=0;i<3;i++){
     let ex6=document.createElement("h3");
         ex6.innerHTML="ola";
-        ex2.appendChild(ex6);
+        paiex6[0].appendChild(ex6);
     }
    
     
@@ -138,6 +139,14 @@
     ex3.parentNode.style.background="green"
     //fim ex5
     
+    //ex6
+    let exer6=document.getElementsByTagName('li');
+    let exer6_1=document.getElementsByTagName('li')[0].parentNode;
+    let j;
+    for(j=0;j<2;j++){
+    exer6_1.removeChild(exer6[exer6.length-1]);
+    }
+    //fim ex6
     </script>
   </body>
 </html>
