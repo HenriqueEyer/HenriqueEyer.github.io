@@ -1,36 +1,38 @@
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Paleta de cores</h1>
+        <div class="divcores">
+            <div id="cor1" class="cores"></div>
+            <div id="cor2" class="cores"></div>
+            <div id="cor3" class="cores"></div>
+            <div id="cor4" class="cores"></div>
+        </div>
+        
+        <div class="tabela">
+            <table>
+               
+            </table>
+        </div>
+       
 
-    <main class="container">
-        <div class="primeira_info">
-        <h1 class="title" id="titulo">
-            Adivinhe a cor!
-        </h1>
-        <input type="button" class="btn_difficult" value="Normal">
-        <input type="button" class="btn_difficult" value="Medio">
-        <input type="button" class="btn_difficult" value="Dificil">
-        <p class="codigo_cores" id="txt_cor"><div class="score">
-            <span>Placar: <span id="score"></span></span>
+        <br>
+        <input type="number" value="5" minlength="5" maxlength="50" id="tamanho">
+        <br>
+        <div class="divbtn">
+        <input type="button" value="reset" id="reset">
+        <input type="button" value="Avatar" id="avatar">
         </div>
-        </p>
-        </div>
-        <div class="box_cores">
-        
-        </div>
-        <div class="segunda_info">
-        <h3 class="info_saida" id="resposta">Escolha uma cor!</h3>
-        <input id="btnreset" type="button" value="Recomeçar Jogo">
-        </div>
-        
-    </main>
-    
-    <script src="script.js"></script>
+        <br>
+        <input type="button" value="Clear" id="btnclear"> 
+    </div>
+    <script type="text/javascript" src="javascript.js"></script>
 </body>
 </html>
