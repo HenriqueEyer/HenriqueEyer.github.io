@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 3.3</title>
+
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Exercício 3.3 - JavaEscripito </h1>
+    <div class="main-content">
+      <div class="center-content">
+        <p>Texto padrão do nosso site</p>
+        <p>----</p>
+        <p>Trybe</p>
+      </div>
+    </div>
+    <script>
+        /*
+        Aqui você irá modificar os elementos já existentes utilizando apenas as funções:
+        - document.getElementById()
+        - document.getElementByClass()
+        - document.getElementByTagName()
+        1. Crie uma função que mude o texto na tag <p> para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício)
+        
+        
+        
+        2. Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe.
+        3. Crie uma função que mude a cor do quadrado vermelho para branco.
+        4. Crie uma função que corrija o texto da tag <h1>.
+        5. Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
+        6. Crie uma função que exiba o conteúdo de todas as tags <p> no console.
+        */
+        //exer1
+        function exe1(){
+            let texto=document.getElementsByTagName("p");
+            texto[1].innerHTML="Me vejo em em uma grande empresa já trabalhando no que eu gosto e desenvolvendo, programs, sites , software e etc."    
+        }
+        exe1();
+
+        //exer2
+        function exe2(){
+            let cor=document.querySelector(".main-content");
+            cor.style="background-color:#0FA36B";
+        }
+        exe2();
+        //exe3
+        function exe3(){
+            let cor=document.querySelector(".center-content");
+            cor.style="background-color:white";
+        }
+        exe3();
+        //exe4
+        function exe4(){
+            let texto=document.querySelector(".title");
+            texto.innerHTML="Exercício 3.3 - JavaScript"
+        }
+        exe4();
+
+        function exe5(){
+            let texto=document.getElementsByTagName("p");
+            for(i in texto){
+            texto[i].style="text-transform: uppercase;"
+            }
+        }
+        exe5();
+
+        
+        function exe6(){
+            let texto=document.getElementsByTagName("p");
+            for(i in texto){
+                console.log(texto[i].innerHTML);
+            }
+        }
+        exe6();
+
+    </script>
+  </body>
+</html>
