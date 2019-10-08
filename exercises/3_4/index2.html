@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 3.4</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // COLOQUE SEU CÓDIGO AQUI
+      //ex1
+        let ex1=document.createElement("h1");
+        ex1.innerHTML="Exercício 3.4 - JavaScript DOM"
+        document.body.appendChild(ex1);
+    //fim  ex1
+    //ex2
+        let ex2=document.createElement("div");
+        ex2.className="main-content"
+        document.body.appendChild(ex2)
+    //fim ex2
+    //ex3
+    let ex3=document.createElement("div");
+        ex3.className="center-content"
+        ex2.appendChild(ex3)
+    //fim ex3
+    //ex4
+    let ex4=document.createElement("p");
+        ex4.innerHTML="Alguma coisa"
+        ex3.appendChild(ex4)
+    //fim ex4
+    //ex5
+    let ex5=document.createElement("div");
+        ex5.className="left-content"
+        ex2.appendChild(ex5)
+    //fim ex5
+    //ex6
+    let ex6=document.createElement("div");
+        ex6.className="right-content"
+        ex2.appendChild(ex6)
+    //fim ex6
+    //ex7
+    let ex7=document.createElement("img");
+        ex7.src="https://picsum.photos/200";
+        ex7.className="small-image"
+        ex5.appendChild(ex7)
+    //fim ex7
+    //ex8
+    let numeros=['UM','DOIS','TRES','QUARTO','CINCO','SEIS','SETE','OITO','NOVE','DEZ'];
+
+    let ex8=document.createElement("ul");
+    ex6.appendChild(ex8);
+    for(i in numeros){
+    let ex8_1=document.createElement("li");
+    ex8_1.innerHTML=numeros[i];
+    ex8.appendChild(ex8_1);
+    }
+    //fim ex8
+    //ex9
+    let paiex6=document.getElementsByClassName('center-content');
+    for(i=0;i<3;i++){
+    let ex6=document.createElement("h3");
+        ex6.innerHTML="ola";
+        paiex6[0].appendChild(ex6);
+    }
+   
+    
+    //fim ex9
+
+    //parte2
+    //ex1
+    let exerc1=document.getElementsByTagName('h1');
+    exerc1[0].className="title";
+    //fim ex1
+    //ex2
+    let exerc2=document.getElementsByTagName('h3');
+    for(i in exerc2){
+      exerc2[i].className="description"
+    }
+    //fim ex2
+    //ex3
+    ex2.removeChild(ex5); 
+    //fim ex3
+
+    //ex4
+    let exerc4=document.getElementsByClassName("right-content");
+    exerc4.style="margin-right:auto";
+    //fim ex4
+
+    //ex5
+    ex3.parentNode.style.background="green"
+    //fim ex5
+    
+    //ex6
+    let exer6=document.getElementsByTagName('li');
+    let exer6_1=document.getElementsByTagName('li')[0].parentNode;
+    let j;
+    for(j=0;j<2;j++){
+    exer6_1.removeChild(exer6[exer6.length-1]);
+    }
+    //fim ex6
+    </script>
+  </body>
+</html>

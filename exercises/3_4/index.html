@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    
+    
+    <div id="pai">
+        <div id="primeiroFilho"></div>
+        <div id="elementoOndeVoceEsta">
+            <div id="primeiroFilhoDoFilho"></div>
+            <div id="segundoEUltimoFilhoDoFilho"></div>
+        </div>
+        <div id="terceiroFilho"></div>
+        <div id="quartoEUltimoFilho"></div>
+    </div>
+    <script>
+        
+        var ex1=document.querySelector("#elementoOndeVoceEsta");
+        var ex2=document.querySelector("#elementoOndeVoceEsta").parentNode;
+        ex2.style="background:red;";
+        var ex3=document.querySelector("#primeiroFilhoDoFilho");
+        ex3.innerHTML="PRIMEIRO FILHO";
+        var ex4=document.querySelector("#pai").firstElementChild;
+        var ex5=document.querySelector("#elementoOndeVoceEsta").previousElementSibling;
+        var ex6=document.querySelector("#elementoOndeVoceEsta").nextElementSibling;
+        var ex7=document.querySelector("#pai").childNodes[5];
+        
+        console.log(ex1);
+        console.log(ex2);
+        console.log(ex3);
+        console.log(ex4);
+        console.log(ex5);
+        console.log(ex6);
+        console.log(ex7);
+
+        let irmao=document.createElement("div");
+        irmao.id="irmaodoelementoondevoceesta";
+        document.querySelector("#pai").appendChild(irmao);
+
+        let filhoelelemento=document.createElement("div");
+        filhoelelemento.id="filhoelemento";
+        document.querySelector("#elementoOndeVoceEsta").appendChild(filhoelelemento);
+
+        let ex2_3=document.createElement("div");
+        ex2_3.id="filhodoprimeirofilhodofilho";
+        document.querySelector("#primeiroFilhoDoFilho").appendChild(ex2_3);
+        
+
+        let ex2_4=document.querySelector("#filhodoprimeirofilhodofilho").parentNode.parentNode.nextElementSibling;
+        
+        var rm1=document.querySelector("#primeiroFilho");
+        var rm2=document.querySelector("#segundoEUltimoFilhoDoFilho");
+        var rm3=document.querySelector("#terceiroFilho");
+        var rm4=document.querySelector("#quartoEUltimoFilho");
+        var rm5=document.querySelector("#filhoelemento");
+        var rm6=document.querySelector("#irmaodoelementoondevoceesta");
+        
+
+        document.getElementById("pai").removeChild(rm1);
+        document.getElementById("elementoOndeVoceEsta").removeChild(rm2);
+        document.getElementById("pai").removeChild(rm3);
+        document.getElementById("pai").removeChild(rm4);
+        document.getElementById("elementoOndeVoceEsta").removeChild(rm5);
+        document.getElementById("pai").removeChild(rm6);
+        
+
+    </script>
+</body>
+</html>
