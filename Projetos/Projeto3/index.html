@@ -3,22 +3,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Adivinhar Cores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main class="container">
-        <div class="primeira_info">
-        <h1 class="title" id="titulo">
+    <main >
+        <div >
+        <h1>
             Adivinhe a cor!
         </h1>
-        <input type="button" class="btn_difficult" value="Normal">
-        <input type="button" class="btn_difficult" value="Medio">
-        <input type="button" class="btn_difficult" value="Dificil">
-        <input type="button" class="btn_difficult" value="Custom"><br>
+        <input type="button" class="btn btn_difficult" value="Normal">
+        <input type="button" class="btn btn_difficult" value="Medio">
+        <input type="button" class="btn btn_difficult" value="Dificil">
+        <input type="button" class="btn btn_difficult" value="Custom"><br>
+        <label id="lbl-tex-difficult">Quantidade de cores que deseja 3 a 20:</label>
         <input type="number" id="text_difficult" style="visibility: hidden;" max-lenght="10" min-length="3" name="" id="">
-        <p class="codigo_cores" id="txt_cor"><div class="score">
+        <p id="txt_cor"><div class="score">
             <span>Placar: <span id="score"></span></span>
         </div>
         </p>
@@ -26,9 +27,10 @@
         <div class="box_cores">
         
         </div>
-        <div class="segunda_info">
-        <h3 class="info_saida" id="resposta">Escolha uma cor!</h3>
-        <input id="btnreset" type="button" value="Recomeçar Jogo">
+        <div >
+        <h3 id="resposta">Escolha uma cor!</h3>
+        <input class="btn" id="btnreset" type="button" value="Mudar dificuldade">
+        <input class="btn" id="btn-new-cores" type="button" value="Resetar o jogo/cores">
         </div>
         
     </main>

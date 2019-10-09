@@ -1,11 +1,14 @@
-get_btn_difficult()
-add_function_click_btn_custom_difficult()
-add_event_change_in_text_difficult()
-restart_game()
-var cor
-var score=[0,0,0];
 
-function init_ALL(size_color){
+var cor
+var score=[0,0,0,0];//4 posiçoes [0]-armazena o valor total do score, [1]-verifica se já acertou ou não, [2]penultimo acerto,[3]ultimo acerto;
+
+add_divscolors(6);
+init_All(6);
+hidden_show_btn_difficult();
+hidden_show_element(document.getElementById('lbl-tex-difficult'));
+
+
+function init_All(size_color){
     put_colors(size_color);
     cor=set_chosen_color(size_color);
     add_txt_cor(cor);
@@ -30,7 +33,7 @@ function add_pontuacao_vetor(acerto){
             } 
         }
     }
-show_score();
+    show_score();
 }
 
 function show_score(){
@@ -39,13 +42,13 @@ function show_score(){
 }
 
 function update_score(valor){
-    score[1]=score[2];
-    score[2]=valor;
+    score[2]=score[3];
+    score[3]=valor;
     score[0]+=valor;
     if(score[0]<0){
         score[0]=0;
     }
-
+    
 }
 
 function generate_new_colors(size_color){
@@ -85,11 +88,15 @@ function desmarcar_click(elemento){
 
 function click_resposta(elemento,size_color){
     elemento.addEventListener('click', function (){
-        desmarcar_cores();
-        let cor_selecionada=return_color_element(this);
-        let resposta=verify_Response(cor_selecionada,cor);
-        change_txt_response(resposta,size_color)
-        marcar_click(this);
+        if(score[1]==0){
+            desmarcar_cores();
+            let cor_selecionada=return_color_element(this);
+            let resposta=verify_Response(cor_selecionada,cor);
+            change_txt_response(resposta,size_color)
+            marcar_click(this);
+        }else{
+            alert('Já acertou!!! Clique no botão novas cores para continuar')
+        }
     })
 }
 
@@ -100,6 +107,7 @@ function return_color_element(elemento){
 function verify_Response(clicado,resposta_certa){
     if(clicado==resposta_certa){
         add_pontuacao_vetor(true);
+        score[1]=1;
         return true;
     }else{
         add_pontuacao_vetor(false);
@@ -182,12 +190,14 @@ function add_divscolors(colors_num){
 }
 
 
-function add_event_btn_difficult(btn,num){
+function event_btn_difficult(btn,num){
     btn.addEventListener('click', function(){
         add_divscolors(num);
-        init_ALL(num);
+        init_All(num);
         hidden_show_btn_difficult();
         return_init_txt();
+        hidden_show_element(document.getElementById('btnreset'));
+        hidden_show_element(document.getElementById('btn-new-cores'));  
     })
 }
 
@@ -196,43 +206,48 @@ function add_function_click_btn_custom_difficult(){
     let btn=document.getElementsByClassName('btn_difficult')[3];
     btn.addEventListener('click',function (){
         hidden_show_element(document.getElementById('text_difficult'))
+        hidden_show_element(document.getElementById('lbl-tex-difficult'))
         hidden_show_btn_difficult();
+        
     })
 }
+add_function_click_btn_custom_difficult();
 
-function get_btn_difficult(){
+function add_eventlistener_btn_difficult(){
     let i;
-    for(i=1;i<4;i++){
-        let btn=document.getElementsByClassName('btn_difficult')[i-1];
-        add_event_btn_difficult(btn,i*3+1);
+    let number=1;
+    for(i=0;i<3;i++){
+        let btn=document.getElementsByClassName('btn_difficult')[i];
+        event_btn_difficult(btn,number*3);
+        number++;
     }
 }
+add_eventlistener_btn_difficult();
 
 function remove_colors(size_color){
     let i;
-    let cores=document.getElementsByClassName('cores')
     for(i=0;i<size_color;i++){
-        get_father_div_colors().removeChild(get_father_div_colors().firstElementChild);
-        
+        get_father_div_colors().removeChild(get_father_div_colors().firstElementChild);  
     } 
-    
 }
 
 function add_event_change_in_text_difficult(){
     let txt=document.getElementById('text_difficult');
-    txt.addEventListener('change',function(){
+    txt.addEventListener('blur',function(){
         if(txt.value==1 || txt.value>20){
             alert("Numero deve ser entre 1 ou 20")
         }else{
-        add_divscolors(txt.value);
-        init_ALL(txt.value);
-        hidden_show_element(txt);
-        return_init_txt();
+            add_divscolors(txt.value);
+            init_All(txt.value);
+            hidden_show_element(txt);
+            hidden_show_element(document.getElementById('lbl-tex-difficult'))
+            return_init_txt();
+            hidden_show_element(document.getElementById('btn-new-cores')); 
+            hidden_show_element(document.getElementById('btnreset')); 
         }
     })
-    
-    
 }
+add_event_change_in_text_difficult();
 
 function hidden_show_btn_difficult(){
     let i;
@@ -249,6 +264,26 @@ function hidden_show_element(elemento){
     }
 }
 
+function add_evente_btn_new_cores(){
+    document.getElementById('btn-new-cores').addEventListener('click', function(){
+        restart_cores();
+    })
+}
+add_evente_btn_new_cores();
+
+function restart_cores(){
+    let cores=document.getElementsByClassName('cores');
+    let guardar_tamanho=cores.length;
+    if(cores.length!=0){
+        remove_colors(cores.length);
+        zera_init_txt();
+        return_init_txt();
+        add_divscolors(guardar_tamanho);
+        init_All(guardar_tamanho);
+        score[1]=0;
+    }
+}
+
 function restart_game(){
     let btnreset=document.getElementById('btnreset');
     let cores=document.getElementsByClassName('cores');
@@ -258,7 +293,8 @@ function restart_game(){
         zera_init_txt();
         score[0]=0;
         show_score();
-        
+        hidden_show_element(btnreset);  
+        hidden_show_element(document.getElementById('btn-new-cores'));   
     })
 }
-
+restart_game();
