@@ -19,8 +19,6 @@ function add_event_click_div_carta(element){
     })
 }
 
-
-
 function create_carta(frase){ 
     let i;
     delete_element(get_element_carta());
