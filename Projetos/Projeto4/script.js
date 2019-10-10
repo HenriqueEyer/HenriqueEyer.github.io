@@ -1,134 +1,131 @@
-add_event_click_btn_input();
-txt_inicial()
+addEventClickBtnInput();
+setInitialPhrase();
 
-
-function txt_inicial(){
-    get_txt_input().value="Digite algo para ficar igual a mim !!"
-    create_carta(split_frase(get_txt_input().value));
-    put_number_element_cont_word(split_frase(get_txt_input().value).length);
+function setInitialPhrase(){
+    createLetter(splitPhrase(getTxtInput().value));
+    let phrase=getTxtInput().value;
+    phrase=splitPhrase(phrase).length;
 }
 
-
-function add_event_click_div_carta(element){
+function addEventClickWord(element){
     element.addEventListener('click', function(){    
-        put_attribute_fontColor_on_element(this);
-        put_attribute_font_style_on_element(this);
-        put_attribute_fontsize_on_element(this);
-        put_attribute_imgbackground_on_element(this)
-        put_attribute_class_on_element(this);
+        setRandomAttributes(this);
     })
 }
 
-function create_carta(frase){ 
+function setRandomAttributes(element){
+        setRandomFontColor(element);
+        setRandomFontStyle(element);
+        setRandomFontSize(element);
+        setRandomBackgroundImage(element);
+        setWordStyle(element);
+}
+
+function createLetter(phrase){
     let i;
-    delete_element(get_element_carta());
-    for(i=0;i<frase.length;i++){ 
-        let div=create_div();
-        create_and_put_txt_div(div,frase[i]);
-        put_attribute_fontColor_on_element(div);
-        put_attribute_font_style_on_element(div);
-        put_attribute_fontsize_on_element(div);
-        put_attribute_imgbackground_on_element(div)
-        put_attribute_class_on_element(div);
-        add_event_click_div_carta(div);
-        add_element_in_div(div);
-        put_number_element_cont_word(get_element_carta().length);
+    deleteLetter(getLetter());
+    for(i=0;i<phrase.length;i++){
+        if(phrase[i]!=""){ 
+        let div=createWord();
+        insertTextInElement(div,phrase[i]);
+        setRandomAttributes(div);
+        addEventClickWord(div);
+        addElementInDiv(div);
+        setWordCount(phrase);
+        }
     }
     
 }
 
-function get_element_carta(){
-    let element=document.getElementsByClassName('divcartas');
+function getLetter(){
+    let element=document.getElementsByClassName('word');
     return element;
 }
 
-function delete_element(element){
+function deleteLetter(element){
     let i;
-    
     if(element!=undefined){
-        let size_elements=element.length;
-        for(i=0;i<size_elements;i++){
+        let sizeElements=element.length;
+        for(i=0;i<sizeElements;i++){
             element[0].parentNode.removeChild(element[0])
         }
     }
 }
 
-function create_and_put_txt_div(element,txt){
+function insertTextInElement(element,txt){
     element.innerHTML=txt;
 }
 
-function add_element_in_div(element){
-    let div=document.getElementsByClassName('div-output')[0];
+function addElementInDiv(element){
+    let div=document.getElementsByClassName('letter')[0];
     div.appendChild(element);
 }
 
-function put_attribute_class_on_element(element){
-    element.className="divcartas";
+function setWordStyle(element){
+    element.className="word";
 }
 
-function put_attribute_imgbackground_on_element(element){
-    element.style.backgroundImage="url(/img"+random_number(4)+".png)";
+function setRandomBackgroundImage(element){
+    element.style.backgroundImage="url(./img"+randomNumber(4)+".png)";
 }
 
-function put_attribute_font_style_on_element(element){
+function setRandomFontStyle(element){
     let styles=['italic','normal','oblique'];
-    element.style.fontStyle=styles[random_number(3)];
+    element.style.fontStyle=styles[randomNumber(styles.length)];
 }
 
 
-function put_attribute_fontColor_on_element(element){
-    element.style.color="rgb("+random_number(255)+","+random_number(255)+","+random_number(255)+")";
+function setRandomFontColor(element){
+    element.style.color="rgb("+randomNumber(255)+","+randomNumber(255)+","+randomNumber(255)+")";
 }
 
-function put_attribute_fontsize_on_element(element){
-    let tamanho=(2+random_number(6))*10
-    
+function setRandomFontSize(element){
+    let tamanho=(2+randomNumber(6))*10;
     element.style.fontSize=tamanho;
 }
 
-function random_number(intervalo){
-    let num;
-    num=Math.floor(Math.random()*intervalo)
-    return num;
+function randomNumber(intervalo){
+    return Math.floor(Math.random()*intervalo)
 }
 
-function create_div(){
-    let div;
-    div=document.createElement('div');
-    return div;
+function createWord(){
+    return document.createElement('div');
 }
 
-function split_frase(txt){
-    txt=txt.split(" ");
-    return txt;
+function splitPhrase(txt){
+    return txt.split(" ");
 }
 
-
-function add_event_click_btn_input(){
-    return_btn_input().addEventListener('click', function(){
-        if(get_txt_input().value!=""){
-            create_carta(split_frase(get_txt_input().value));
+function addEventClickBtnInput(){
+    returnBtnInput().addEventListener('click', function(){
+        if(getTxtInput().value!=""){
+            createLetter(splitPhrase(getTxtInput().value));
         }else{
-            delete_element(get_element_carta());
+            deleteLetter(getLetter());
         }
     })
 }
 
-
-function return_btn_input(){
-    let btn_input=document.getElementById('btn_input')
-    return btn_input;
+function returnBtnInput(){
+    return txtInput=document.getElementById('btn_input');
 }
 
-function get_txt_input(){
-    let txt_input=document.getElementById('txt_input');
-    return txt_input
+function getTxtInput(){
+    return txtInput=document.getElementById('txtInput');
+ 
 }
 
-function get_element_cont_word(){
-    return document.getElementsByClassName('cont_word')[0];
+function getCountWord(){
+    return document.getElementById('cont_word');
 }
 
-function put_number_element_cont_word(word_count){
-    get_element_cont_word().innerText=+word_count;
+function setWordCount(wordCount){
+    let cont;
+    let wordNumber=wordCount.length;
+    for(cont=0;cont<wordCount.length;cont++){
+        if(wordCount[cont]==""){
+            wordNumber--;
+        }
+    }
+    getCountWord().innerText=wordNumber;
 } 
