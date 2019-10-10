@@ -5,36 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adivinhar Cores</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-
-    <main >
-        <div >
-        <h1>
-            Adivinhe a cor!
-        </h1>
-        <input type="button" class="btn btn_difficult" value="Normal">
-        <input type="button" class="btn btn_difficult" value="Medio">
-        <input type="button" class="btn btn_difficult" value="Dificil">
-        <input type="button" class="btn btn_difficult" value="Custom"><br>
-        <label id="lbl-tex-difficult">Quantidade de cores que deseja 3 a 20:</label>
-        <input type="number" id="text_difficult" style="visibility: hidden;" max-lenght="10" min-length="3" name="" id="">
-        <p id="txt_cor"><div class="score">
-            <span>Placar: <span id="score"></span></span>
+    <main>
+        <div>
+            <h1>Adivinhe a cor!</h1>
+            <input type="button" class="btn btn-difficult" value="Normal">
+            <input type="button" class="btn btn-difficult" value="Medio">
+            <input type="button" class="btn btn-difficult" value="Dificil">
+            <input type="button" class="btn btn-difficult" value="Custom"><br>
+            <label id="lbl-tex-difficult">Quantidade de cores que deseja 3 a 20:
+            <input type="number" id="text-difficult" style="visibility: hidden;"class="text-difficult" max-lenght="10" min-length="3"></label>
+            <p id="textColorSelect">
+                <div id="score"></div>
+            </p>
         </div>
-        </p>
-        </div>
-        <div class="box_cores">
-        
-        </div>
-        <div >
-        <h3 id="resposta">Escolha uma cor!</h3>
-        <input class="btn" id="btnreset" type="button" value="Mudar dificuldade">
-        <input class="btn" id="btn-new-cores" type="button" value="Resetar o jogo/cores">
+        <div class="boxColor"></div>
+        <div>
+            <h3 id="resposta">Escolha uma cor!</h3>
+            <input class="btn" id="btn-change-difficult" type="button" value="Mudar dificuldade">
+            <input class="btn" id="btn-new-cores" type="button" value="Resetar o jogo/cores">
         </div>
         
     </main>
     
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script> 
 </body>
 </html>

@@ -1,6 +1,4 @@
 *{
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 *{
@@ -8,34 +6,38 @@
     margin: 0;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
 }
 
-.box_cores{
+.boxColor {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 80px;
 }
 
-.cores{
+.cores {
     width: 50px;
     height: 50px;
-
+    
     margin: 0px 5px 0px 5px;
     
     border-radius: 100%;
     border: 1px solid black;
 }
 
-#text_difficult{
+#text-difficult {
     width:50px;
 }
 
-.btn{
+.btn {
     padding: 6px;
+}
+
+.text-difficult, #lbl-tex-difficult {
+    visibility: hidden;
 }
