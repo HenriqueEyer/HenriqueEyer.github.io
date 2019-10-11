@@ -1,192 +1,203 @@
-reload_list();
-add_event_click_on_btn_input(return_element_HTML_by_id('btn_input'));
-add_event_click_on_btn_excluir(return_element_HTML_by_id('btn_excluir_ALL'))
-add_event_click_on_btn_excluir_item(return_element_HTML_by_id('btn_excluir_item'))
-add_event_click_on_btn_excluir_completos(return_element_HTML_by_id('btn_excluir_completos'))
-add_event_btn_salvar(return_element_HTML_by_id('btn_salvar'))
-add_event_btn_down(return_element_HTML_by_id('btn_down'))
-add_event_btn_up(return_element_HTML_by_id('btn_up'))
+reloadList();
+addClickBtnInput(returnById('btn-input'));
+addClickBtnExcluir(returnById('btn-excluir-ALL'));
+addClickBtnExcluirItem(returnById('btn-excluir-item'));
+addClickBtnExcluirCompletos(returnById('btn-excluir-completos'));
+addClickBtnSave(returnById('btn-salvar'));
+addClickBtnDown(returnById('btn-down'));
+addClickBtnUP(returnById('btn-up'));
 
 
-function add_event_btn_up(element){
-    element.addEventListener('click',function(){
-        move_up_item(return_element_HTML_by_id('select'))
+function addClickBtnUP(element){
+    element.addEventListener('click', function(){
+        moveUp(returnById('select'));
     })
 }
 
-function add_event_btn_down(element){
-    element.addEventListener('click',function(){
-        move_down_item(return_element_HTML_by_id('select'))
+function addClickBtnDown(element){
+    element.addEventListener('click', function(){
+        moveDown(returnById('select'));
     })
 }
 
 
 
-function move_up_item(element){
+function moveUp(element){
     if(element){
-        let item_pai=element.parentNode;
-        item_pai.insertBefore(element,element.previousElementSibling);
+        let elementFather = element.parentNode;
+        elementFather.insertBefore(element, element.previousElementSibling);
     }
 }
 
-function move_down_item(element){
+function moveDown(element){
     if(element){
-        let item_pai=element.parentNode;
-        if(element==item_pai.lastChild){
-            item_pai.insertBefore(element,item_pai.firstElementChild); 
+        let elementFather = element.parentNode;
+        if( element == elementFather.lastChild ){
+            elementFather.insertBefore( element, elementFather.firstElementChild ); 
         }else{
-            item_pai.insertBefore(element.nextElementSibling,element); 
+            elementFather.insertBefore(element.nextElementSibling, element ); 
         }
     }
 }
 
 
 
-function save_list(){
+function saveList(){
     localStorage.clear();
-    let list = return_list_by_tag_name('li') 
-    let i;
-    let text;
-    for (i=0;i<list.length;i++){
-        if(list[i].textContent!=""){
-            localStorage.setItem('list'+i,list[i].textContent);
+    let list = returnByTagName('li') ;
+    let position;
+    for ( position = 0; position < list.length; position++ ){
+        if( list[position].textContent != "" ){
+            localStorage.setItem('list'+ position, list[position].textContent);
+        }
+        if ( list[position].className == "completed" ) {
+            localStorage.setItem('completed' + position, 1);
+        } else {
+            localStorage.setItem('completed' + position, 0);
         }
     }
 }
 
-function reload_list(){
-    let i;
-    for(i=0;i<localStorage.length;i++){
-        let text=localStorage["list"+i];
-        add_element_inside_ol(add_text_inside_item_li(create_element_li(),text),return_element_HTML_by_id('ol_list'));
+function reloadList(){
+    let position;
+    for( position = 0; position < localStorage.length/2 ; position++ ){
+        let text=localStorage[ "list" + position] ;
+        let elementFather = returnById('ol-list');
+        let task=addTextTask(createLI(), text);
+        if (localStorage['completed' + position] == "1") {
+            markCompleted(task);
+        }
+        addElementInHTML(task, elementFather);
     }
 }
 
-function add_event_btn_salvar(btn){
+function addClickBtnSave(btn){
     btn.addEventListener('click' , function (){
-        save_list();
+        saveList();
         
     })
 }
 
 
-function add_event_click_on_btn_excluir_completos(btn){
+function addClickBtnExcluirCompletos(btn){
     btn.addEventListener('click', function(){
-        delete_all_completed_item();
+        deleteCompleted();
     })
 }
 
-function add_event_click_on_btn_excluir(btn){
+function addClickBtnExcluir(btn){
     btn.addEventListener('click', function(){
-        delete_all_item();
+        deleteAllItem();
     })
 }
 
-function add_event_click_on_btn_excluir_item(btn){
+function addClickBtnExcluirItem(btn){
     btn.addEventListener('click', function(){
-        delete_element(return_element_HTML_by_id('select'))
+        if(returnById('select')){
+            deleteElement(returnById('select'));
+        }
     })
 }
 
-function delete_all_item(){
-    let list=return_list_by_tag_name('li');
-    let size_list=list.length;
-    let i;
-    for(i=0;i<size_list;i++){
-        delete_element(list[0]);
+function deleteAllItem(){
+    let list=returnByTagName('li');
+    let sizeList=list.length;
+    let position;
+    for( position = 0; position < sizeList; position++ ){
+        deleteElement(list[0]);
     }
 }
 
-function delete_all_completed_item(){
-    let list=return_list_by_class_name('completed');
-    let size_list=list.length;
+function deleteCompleted(){
+    let list=returnByClassName('completed');
+    let sizeList=list.length;
     let i;
-    for(i=0;i<size_list;i++){
-        delete_element(list[0]);
+    for( i=0; i<sizeList; i++ ){
+        deleteElement(list[0]);
     }
     
 }
 
-function return_list_by_class_name(name){
+function returnByClassName(name){
     let elements=document.getElementsByClassName(name);
     return elements;
 }
 
 
-function return_list_by_tag_name(name){
+function returnByTagName(name){
     let elements=document.getElementsByTagName(name);
     return elements;
 }
 
 
-function delete_element(element){
+function deleteElement(element){
     element.parentNode.removeChild(element);
 }
 
-function add_event_click_on_li_for_mark_item_with_line(element){
+function addClickMarkCompleted(element){
     element.addEventListener('dblclick', function(){
-        mark_li_double_click(this)
+        markCompleted(this);
     })
 }
 
-function mark_li_double_click(element){
-    if(element.className!="completed"){
-        element.className="completed"
+function markCompleted(element){
+    if( element.className != "completed" ){
+        element.className = "completed";
     }else{
-        element.className="";
+        element.className = "";
     }
 }
 
-function remove_attriubute_background_and_id_all_li(){
-    let list=return_list_by_tag_name('li');
-    let size_list=list.length;
-    let i;
-    for(i=0;i<size_list;i++){
-        list[i].style.background="";
-        list[i].removeAttribute("id");
-    }
+function removeIdSelect(element){
+    element.style.background = "";
+    element.removeAttribute("id");
 }
 
-function add_event_click_on_li_for_trace_item(element){
+
+function addClickLiSelect(element){
     element.addEventListener('click', function(){
-        remove_attriubute_background_and_id_all_li();
-        this.id="select";
-        this.style.background="#A9A9A9";
+        if(returnById('select')){
+            removeIdSelect(returnById('select'));
+            this.id = "select";
+            this.style.background = "#424C55";
+        }else{
+            this.id = "select";
+            this.style.background = "#424C55";
+        }
     })
 }
 
-function add_event_click_on_btn_input(element){
-    element.addEventListener('click',function(){
-        //SIM isso funciona linha
-        //cria o li, e adiciona o texto nele e depois o coloca no ol.
-        add_element_inside_ol(add_text_inside_item_li(create_element_li(),return_element_HTML_by_id('input_txt').value),return_element_HTML_by_id('ol_list'));
-        
+function addClickBtnInput(element){
+    element.addEventListener('click', function(){
+        if( returnById('input-txt').value ){
+            
+            let elementFather = returnById( 'ol-list' );
+            let textInput = returnById( 'input-txt' ).value;
+            let taskLi = addTextTask(createLI(), textInput)
+            addElementInHTML(taskLi, elementFather);
+            returnById('input-txt').value = "";
+        }
     })
 }
 
-function add_element_inside_ol(elementfilho,elementpai){
-    elementpai.appendChild(elementfilho);
+function addElementInHTML(elementChild , elementFather){
+    elementFather.appendChild(elementChild );
 }
 
-function add_text_inside_item_li(element,txt){
-    element.innerHTML=txt;
-    add_event_click_on_li_for_trace_item(element);
-    add_event_click_on_li_for_mark_item_with_line(element);
+function addTextTask(element, txt){
+    element.innerHTML = txt;
+    addClickLiSelect(element);
+    addClickMarkCompleted(element);
     return element;
 }
 
-function create_element_li(){
-    let item_li=document.createElement('li');
-    return item_li;
+function createLI(){
+    let elementLi = document.createElement('li');
+    return elementLi;
 }
 
-
-function return_element_HTML_by_className(classname){
-    let element = document.getElementsByTagName(classname);
-    return element;
-}
-
-function return_element_HTML_by_id(id){
+function returnById(id){
     let element = document.getElementById(id);
     return element;
 }
+
