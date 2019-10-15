@@ -7,6 +7,9 @@ window.onload = function() {
     addClickSaveBtn(returnById('btn-save'));
     addClickDownBtn(returnById('btn-down'));
     addClickUpBtn(returnById('btn-up'));
+    addClickConfirmBtn(returnById('btn-confirm'));
+    addClickCancelBtn(returnById('btn-cancel'));
+    addKeyupTextInput(returnById('new-task-input'));
     
     function addClickUpBtn(element) {
         element.addEventListener('click', function() {
@@ -38,9 +41,69 @@ window.onload = function() {
         }
     }
     
+    function reduceSize(string) {
+        if(string.length > 30) {
+            return string.substring(0,30) + "...";
+        } else {
+            return string;
+        }
+        
+    }
+    
+    function showSaveTasks(task,status,number) {  
+        let textTask = addTextTask(createItem("td"), reduceSize(task));
+        let lineTaskStatus = addTextTask(createItem("td"), status);
+        let indiceTask = addTextTask(createItem("td"), number);
+        let row=createItem("tr");
+        let elementFather = returnById('feedbackSave');
+        addElementInHTML(indiceTask,row);
+        addElementInHTML(textTask,row);
+        addElementInHTML(lineTaskStatus,row);
+        addElementInHTML(row,elementFather);
+        returnById('feedback').style.visibility="visible";
+    }
+    
+    function removeTaskSaves() {
+        if(returnById('list-void')) {
+            deleteElement(returnById('list-void'));
+        } else {
+            let tasks = returnByTagName('tr');
+            let sizeTasks = tasks.length;
+            let position;
+            for(position = 0; position < sizeTasks; position++) {
+                deleteElement(tasks[0]);
+            }
+        }   
+    }
+    
     function saveList() {
+        let list = returnByTagName('li');
+        let position;
+        if(list.length == 0) {
+            disableAllMainBtn();
+            let elementFather = returnById('feedback');
+            let informacao = createItem("span");
+            informacao.innerHTML="Lista Vazia";
+            informacao.id="list-void";
+            addElementInHTML(informacao,elementFather);
+            returnById('feedback').style.visibility="visible";
+            filterBrightnesslight(returnById('feedback'));
+        } else {
+            for (position = 0; position < list.length; position++) {
+                if (list[position].className == "completed") {
+                    showSaveTasks(list[position].textContent, "S",(position+1));
+                } else {
+                    showSaveTasks(list[position].textContent, "N",(position+1));
+                }
+            }
+            disableAllMainBtn();
+            filterBrightnesslight(returnById('feedback'));
+        }
+    }
+    
+    function sendLocalStorage() {
         localStorage.clear();
-        let list = returnByTagName('li') ;
+        let list = returnByTagName('li');
         let position;
         for (position = 0; position < list.length; position++) {
             if(list[position].textContent != "") {
@@ -51,6 +114,7 @@ window.onload = function() {
             } else {
                 localStorage.setItem('completed' + position, 0);
             }
+            
         }
     }
     
@@ -59,7 +123,7 @@ window.onload = function() {
         for(position = 0; position < localStorage.length/2; position++) {
             let text = localStorage[ "item" + position] ;
             let elementFather = returnById('ol-list');
-            let task = addTextTask(createLI(), text);
+            let task = addTextTask(createItem("li"), text);
             if (localStorage['completed' + position] == "1") {
                 markCompleted(task);
             }
@@ -69,7 +133,8 @@ window.onload = function() {
     
     function addClickSaveBtn(btn) {
         btn.addEventListener('click' , function () {
-            saveList();    
+            saveList();
+            filterBrightnessDark(returnByClassName('container')[0]);
         })
     }
     
@@ -92,6 +157,15 @@ window.onload = function() {
             }
         })
     }
+    
+    function filterBrightnessDark(element){
+        element.style.filter= "brightness(40%)";
+    }
+
+    function filterBrightnesslight(element){
+        element.style.filter= "brightness(100%)";
+    }
+    
     
     function deleteAllItem() {
         let list = returnByTagName('li');
@@ -116,7 +190,7 @@ window.onload = function() {
     }
     
     function returnByTagName(name) {
-        return document.getElementsByTagName(name);;
+        return document.getElementsByTagName(name);
     }
     
     function deleteElement(element) {
@@ -155,15 +229,53 @@ window.onload = function() {
         })
     }
     
+    function disableAllMainBtn() {
+        for(let indice of returnByClassName('btn-main')) {
+            disableElement(indice);
+        } 
+    }
+    
+    function addClickCancelBtn(element){
+        element.addEventListener('click', function() {
+            feedbackBtn();
+        })
+    }
+    
+    function feedbackBtn(){
+        returnById('feedback').style.visibility="hidden";
+        disableAllMainBtn();
+        removeTaskSaves();
+        filterBrightnesslight(returnByClassName('container')[0]);
+    }
+    
+    function addClickConfirmBtn(element) {
+        element.addEventListener('click', function() {
+            sendLocalStorage();
+            feedbackBtn();
+        })
+    }
+    
+    function addTask() {
+        let elementFather = returnById('ol-list');
+        let textInput = returnById('new-task-input').value;
+        let taskLi = addTextTask(createItem("li"), textInput);
+        addElementInHTML(taskLi, elementFather);
+        returnById('new-task-input').value = "";
+    }
+    
     function addClickInputBtn(element) {
         element.addEventListener('click', function() {
             if(returnById('new-task-input').value) {
-                
-                let elementFather = returnById('ol-list');
-                let textInput = returnById('new-task-input').value;
-                let taskLi = addTextTask(createLI(), textInput)
-                addElementInHTML(taskLi, elementFather);
-                returnById('new-task-input').value = "";
+                addTask();
+            }
+        })
+    }      
+    function addKeyupTextInput(element) {
+        element.addEventListener('keydown', function(){
+            if(event.keyCode == 13){
+                if(returnById('new-task-input').value) {
+                    addTask();
+                }
             }
         })
     }
@@ -179,11 +291,21 @@ window.onload = function() {
         return element;
     }
     
-    function createLI() {
-        return document.createElement('li');
+    function createItem(tag) {
+        return document.createElement(tag);
     }
+    
     
     function returnById(id) {
         return document.getElementById(id);
+    }
+    
+    function disableElement(element) {
+        if(element.disabled==false){
+            element.disabled= true;
+        } else {
+            element.disabled= false;
+        }
+        
     }
 }
