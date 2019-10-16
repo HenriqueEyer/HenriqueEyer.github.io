@@ -91,9 +91,9 @@ window.onload = function() {
         } else {
             for (position = 0; position < list.length; position++) {
                 if (list[position].className == "completed") {
-                    showSaveTasks(list[position].textContent, "S",(position+1));
+                    showSaveTasks(list[position].textContent, "SIM",(position+1));
                 } else {
-                    showSaveTasks(list[position].textContent, "N",(position+1));
+                    showSaveTasks(list[position].textContent, "NÃO",(position+1));
                 }
             }
             disableAllMainBtn();
@@ -238,7 +238,7 @@ window.onload = function() {
     function addClickCancelBtn(element){
         element.addEventListener('click', function() {
             feedbackBtn();
-            alert('Operação de salvar cancelada');
+            alert('Operação de salvar a tela cancelada');
         })
     }
     
