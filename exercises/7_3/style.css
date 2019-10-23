@@ -1,4 +1,7 @@
-
+div{ 
+    display: flex;
+    flex-shrink: 0;
+}
 #exercise-1 {
     animation: slide 3s;
     animation-delay: 1s;
@@ -45,7 +48,36 @@
     animation-iteration-count: infinite;
 }
 
+#exercise-10 {
+    animation: changeColor2 4s alternate-reverse, resize 10s alternate-reverse;
+    animation-iteration-count: infinite;
+}
 
+#exercise-11_1 {
+    animation: slide 3s linear 2s infinite
+}
+
+#exercise-11_2 {
+    animation: slide 3s ease 2s infinite;
+    
+}
+
+#exercise-11_3 {
+    animation: slide 3s ease-in 2s infinite;
+}
+
+#exercise-11_4 {
+    animation: slide 3s ease-out 2s infinite;
+
+}
+#exercise-11_5 {
+    animation: slide 3s ease-in-out 2s infinite;
+}
+
+ #exercise-12:active {
+    animation: hideElement 1s;
+    animation-fill-mode: backwards;
+}
 
 
 @keyframes slide {
@@ -54,7 +86,7 @@
     }
 
     to {
-        margin-left: 100%;
+        margin-left: 95%;
     }
 }
 
@@ -65,7 +97,7 @@
     }
 
     to {
-        margin-right: 100%;
+        margin-right: 95%;
     }
 }
 
@@ -75,7 +107,7 @@
     }
 
     to {
-        width: 100%;
+        width: 95%;
     }
 }
 
@@ -102,6 +134,16 @@
     }
     100% {
         background: green;
+    }
+}
+
+@keyframes hideElement {
+    from {
+        opacity: 1;    
+    }
+    
+    to{
+        opacity: 0;
     }
 }
 
