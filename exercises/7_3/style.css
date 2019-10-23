@@ -1,0 +1,15 @@
+
+#exercise-1 {
+    animation: slide 3s;
+    animation-delay: 1s;
+}
+
+@keyframes slide {
+    from {
+        margin-left: 0%;
+    }
+
+    to {
+        margin-left: 100%;
+    }
+}
