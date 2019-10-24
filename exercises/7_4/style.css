@@ -1,0 +1,93 @@
+.cinco-ouro {
+    background-image: url("cartas/cinco-de-ouros.png");
+}
+
+.nove-de-espadas {
+    background-image: url("cartas/nove-de-espadas.png");
+}
+
+.quatro-de-paus {
+    background-image: url("cartas/quatro-de-paus.png");
+}
+
+.seis-de-copas {
+    background-image: url("cartas/seis-de-copas.png");
+}
+
+.sete-de-espadas {
+    background-image: url("cartas/sete-de-espadas.png");
+}
+
+.sete-de-paus {
+    background-image: url("cartas/sete-de-paus.png")
+}
+
+.tres-de-ouros {
+    background-image: url("cartas/tres-de-ouros.png");
+}
+
+.verso {
+    background-image: url("cartas/verso-da-carta.png");
+    
+}
+
+.card, .deck {
+    width: 142px;
+    height: 200px;
+    background-size:cover;
+    margin: 50px;
+
+}
+
+@keyframes scalecard {
+    0% {
+        transform: scale(1,1);
+      }
+      100% {
+        transform: scale(1.5,1.5);
+      }
+}
+
+@keyframes rotatecard {
+    0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+}
+
+@keyframes hidecard{
+    0%{
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.hide-card:hover {
+    animation: hidecard 2s ease-out;
+    animation-fill-mode: forwards;
+}
+
+.scale-card:hover {
+    animation: scalecard 2s ease-out;
+    animation-fill-mode: forwards;
+}
+
+.rotate-card:hover{
+    animation: rotatecard 1s linear infinite;
+}
+
+main {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-cards {
+    display: flex;
+    flex-flow: row wrap;
+}
