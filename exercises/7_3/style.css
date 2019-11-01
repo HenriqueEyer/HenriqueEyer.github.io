@@ -1,0 +1,150 @@
+div{ 
+    display: flex;
+    flex-shrink: 0;
+}
+#exercise-1 {
+    animation: slide 3s;
+    animation-delay: 1s;
+}
+
+
+#exercise-2 {
+    animation: slide 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+#exercise-3 {
+    animation: slide 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#exercise-4:hover {
+    animation: slide 5s;
+}
+
+#section-5:hover #exercise-5 {
+    animation: slide 1s;
+}
+
+#exercise-6-square:hover ~ #exercise-6 {
+    animation: slide2 5s;
+}
+
+#exercise-7 {
+    animation: resize 10s;
+    animation-iteration-count: infinite;
+}
+
+#exercise-8 {
+    animation: changeColor 4s;
+}
+
+#exercise-9 {
+    animation: changeColor2 4s alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#exercise-10 {
+    animation: changeColor2 4s alternate-reverse, resize 10s alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#exercise-11_1 {
+    animation: slide 3s linear 2s infinite
+}
+
+#exercise-11_2 {
+    animation: slide 3s ease 2s infinite;
+    
+}
+
+#exercise-11_3 {
+    animation: slide 3s ease-in 2s infinite;
+}
+
+#exercise-11_4 {
+    animation: slide 3s ease-out 2s infinite;
+
+}
+#exercise-11_5 {
+    animation: slide 3s ease-in-out 2s infinite;
+}
+
+ #exercise-12:active {
+    animation: hideElement 1s;
+    animation-fill-mode: backwards;
+}
+
+
+@keyframes slide {
+    from {
+        margin-left: 0%;
+    }
+
+    to {
+        margin-left: 95%;
+    }
+}
+
+
+@keyframes slide2 {
+    from {
+        margin-right: 0%;
+    }
+
+    to {
+        margin-right: 95%;
+    }
+}
+
+@keyframes resize {
+    from {
+        width: 10%;
+    }
+
+    to {
+        width: 95%;
+    }
+}
+
+@keyframes changeColor {
+    from {
+        background: red;
+    }
+
+    to {
+        background: yellow;
+    }
+}
+
+@keyframes changeColor2 {
+    0% {
+        background: red;
+    }
+
+    33% {
+        background: yellow;
+    }
+    66% {
+        background: blue;
+    }
+    100% {
+        background: green;
+    }
+}
+
+@keyframes hideElement {
+    from {
+        opacity: 1;    
+    }
+    
+    to{
+        opacity: 0;
+    }
+}
+
+
