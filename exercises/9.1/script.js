@@ -3,7 +3,7 @@ window.onload = () => {
     const returnByClassName = nameClass => document.getElementsByClassName(nameClass)
     const setNewKey = ({ id, value }) => localStorage.setItem(id, value)
     const setStyle = (changeStyle, valueStyle) => {
-        (changeStyle === 'font-size') ? document.main.style[changeStyle] = valueStyle + "px" : document.main.style[changeStyle] = valueStyle
+        (changeStyle === 'font-size') ? returnByid('main').style[changeStyle] = valueStyle + "px" : returnByid('main').style[changeStyle] = valueStyle
     }
     for (let localKey of Object.keys(localStorage)) {
         setStyle(localKey, localStorage.getItem(localKey))
