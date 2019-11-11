@@ -1,11 +1,22 @@
 const API_URL = "https://icanhazdadjoke.com/"
-const returnId=nameId=>document.getElementById(nameId)
-const fetchJoke = () => {
-    fetch(API_URL, {
+const returnId = nameId => document.getElementById(nameId)
+
+
+    catchJoke()
+        .then(response => {
+            console.log('yay')
+        })
+        .catch(error => {
+            console.log('error');
+            console.log(error);
+        });
+
+    async function catchJoke() {
+        const response = await fetch(API_URL, {
             headers: { Accept: "application/json" }
         })
-        .then((response) => response.json())
-        .then((json) => returnId('jokeContainer').innerHTML=json.joke)
-}
-window.onload = () => fetchJoke()
+        const json = await response.json();
+        returnId('jokeContainer').innerHTML = json.joke;
+    }
 
+    window.onload = () => catchJoke()
