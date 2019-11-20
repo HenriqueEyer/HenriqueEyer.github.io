@@ -2,13 +2,11 @@ import React from 'react';
 
 import DetailsPokemon from './DetailsPokemon.js'
 
-
-
 class Pokemon extends React.Component {
     render() {
-        const pokemons = this.props.pokemon
+        const {pokemon} = this.props
         return (
-          <DetailsPokemon pokemon={pokemons} />
+          <DetailsPokemon pokemon={pokemon} />
         )
     }
 }
