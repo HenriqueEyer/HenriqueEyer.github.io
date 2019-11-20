@@ -3,13 +3,9 @@ import './DetailsPokemon.css'
 
 class DetailsPokemon extends React.Component {
     render() {
-        const {id, name, type, image, moreInfo, averageWeight } = this.props.pokemon;
+        const {id, name, type, image, averageWeight } = this.props.pokemon;
         const itemtype = (item, size) => {
             return <li>{item} {size}</li>
-        }
-
-        const link = (item, info) => {
-            return <li><a href={item}>  Mais info sobre {info} </a></li>
         }
 
         const imgPoke = imgPokemon => {
@@ -18,12 +14,12 @@ class DetailsPokemon extends React.Component {
         return (
             <div className="Details">
                 <span className="id">{id}</span>
-                <span>{name}</span>
                 <div className="sub">
                 <ul>
+                    {itemtype(name)}
                     {itemtype(type)}
-                    {itemtype(averageWeight['value'], averageWeight['measurementUnit'])}
-                    {link(moreInfo,name)}
+                    <li>AverageWeight: {averageWeight['value']}, {averageWeight['measurementUnit']}</li>
+
                 </ul>
                 {imgPoke(image)}
                 </div>

@@ -51,6 +51,7 @@ class App extends React.Component {
     }
     return (
       <div className="App">
+        <h1>POKEDEX</h1>
         <Pokedex pokemons={getArr(this.state)} />
         <div>
           <BotaoType key={0} handleClick={this.setType} value={['All', data.length]}/>
