@@ -40,6 +40,8 @@ class App extends React.Component {
         return num; 
          },0)
     )
+    console.log(this.state)
+    
     const getArr=({type, pokemonNumber})=> {
       return data.filter(pokemons => {
         if(type==='All'){
