@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  padding: 20px;
+
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.div-btn-type{
+  width: 50%;
+  min-width: 400px;
+  align-self: center;
+}
+
+@media (max-width: 600px) {
+  body {
+    background: black;
+    color: white;
+    border-color: white;
+  };
+  .div-btn-type{
+    width: 100%;
+    min-width: 400px;
+    align-self: center;
+  }
+}
