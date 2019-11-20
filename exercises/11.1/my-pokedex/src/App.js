@@ -50,10 +50,10 @@ class App extends React.Component {
       })[pokemonNumber];
     }
     return (
-      <div className="App">
+      <main className="App">
         <h1>POKEDEX</h1>
         <Pokedex pokemons={getArr(this.state)} />
-        <div>
+        <div className="div-btn-type">
           <BotaoType key={0} handleClick={this.setType} value={['All', data.length]}/>
           {types.map((type,index) =>
             <BotaoType
@@ -65,7 +65,7 @@ class App extends React.Component {
         <div>
         <Botao handleClick={this.setNumberPokemon} value={this.state.pokemonNumber} namebtn="Proximo" disable={(this.state.size===1)?true:false}/>
         </div>
-      </div>
+      </main>
     );
   }
 }

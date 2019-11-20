@@ -1,0 +1,12 @@
+.btnType {
+    padding: 15px;
+    background: coral;
+    margin: 2px;
+}
+
+@media (max-width: 600px) {
+    .btnType {
+      width: 100%;
+    };
+   }
+  

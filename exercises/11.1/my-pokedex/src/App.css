@@ -22,4 +22,21 @@
   color: #09d3ac;
 }
 
+.div-btn-type{
+  width: 50%;
+  min-width: 400px;
+  align-self: center;
+}
 
+@media (max-width: 600px) {
+  body {
+    background: black;
+    color: white;
+    border-color: white;
+  };
+  .div-btn-type{
+    width: 100%;
+    min-width: 400px;
+    align-self: center;
+  }
+}

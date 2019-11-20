@@ -1,0 +1,19 @@
+.btnNext {
+    padding: 15px;
+    background: green;
+    margin: 2px;
+}
+
+.btnNext:disabled {
+    padding: 15px;
+    background: darkgray;
+    margin: 2px;
+}
+
+@media (max-width: 600px) {
+    .btnNext {
+      width: 60%;
+      min-width: 400px;
+    };
+   }
+  
