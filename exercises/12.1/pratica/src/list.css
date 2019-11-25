@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    border: 2px cornflowerblue solid;
+    width: 50%;
+    align-items: center;
+}
+
+.boxUp {
+    padding: 6px 12px;
+    border: 2px blanchedalmond solid;
+}
+
+.main ul {
+    list-style-type: none;
+    border: 2px green solid;
+    padding: 20px;
+}
