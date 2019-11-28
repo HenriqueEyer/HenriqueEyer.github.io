@@ -1,0 +1,20 @@
+.Details {
+    border: 2px black solid;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 2px;
+    border-radius: 15px;
+    width: 50%;
+    min-width: 400px;
+}
+.Details .sub {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.Details ul {
+    list-style: none;
+}
