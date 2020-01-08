@@ -19,6 +19,7 @@ function House(props) {
   const selectPlayer=()=>{
     return <h2>{ status.player === 1 ? '0':'X'}</h2>
   }
+  
   const verifyStatus = () => {
     return (status===undefined)
   }
