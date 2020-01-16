@@ -14,7 +14,7 @@ class ListPost extends Component {
   
 
   render() {
-    const { posts } = this.props;
+    const { posts, data} = this.props;
 
     const renderLI = (text)=> {
       return (
@@ -25,7 +25,7 @@ class ListPost extends Component {
       <aside>
         <section>
           <h2>
-            Last updated at HORA
+            {data}
         </h2>
           <input type="button" value="Refresh" />
         </section>
@@ -46,10 +46,12 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = ({
   posts: {
     posts,
+    data,
   }
 }) => (
   {
     posts,
+    data,
   }
 );
 

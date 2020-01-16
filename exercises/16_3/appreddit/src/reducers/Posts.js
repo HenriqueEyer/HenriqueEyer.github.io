@@ -5,7 +5,12 @@ import {
 } from '../actions';
 
 const INITIAL_POSTS = {
-  isFetching: false,
+  isFetching: false,  
+}
+
+const getDate = () => {
+  const now = new Date
+  return `Last Uptade ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()} ${now.getDate()}/${now.getMonth()+1} de ${now.getFullYear()}`
 }
 
 const posts = (state = INITIAL_POSTS, action) => {
@@ -19,6 +24,7 @@ const posts = (state = INITIAL_POSTS, action) => {
       return {
         ...state,
         posts: action.posts,
+        data: getDate(),
         isFetching: false,
       }
     case RECEIVE_POSTS_FAILURE:
